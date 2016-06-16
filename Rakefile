@@ -5,7 +5,7 @@ require 'rubygems/package'
 include Helpers
 
 PLATFORMS = {
-  ubuntu: ["12.04", "14.04"]
+  ubuntu: ["12.04", "14.04", "16.04"]
 }
 
 desc "build the docker base images"
@@ -33,7 +33,7 @@ end
 
 
 def build_docker_image(platform, version)
-  image = "tknerr/baseimage-#{platform}:#{version}"
+  image = "swisleiden/baseimage-#{platform}:#{version}"
   sh "docker build -t #{image} #{dir(platform, version)}"
 end
 
